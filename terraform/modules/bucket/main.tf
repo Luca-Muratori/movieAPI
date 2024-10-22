@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "movieApi-223769697" {
-  bucket = "movieApi-223769697"
+resource "aws_s3_bucket" "movieapi-223769697" {
+  bucket = "movieapi-223769697"
   tags = {
     Name = "bucket-movieapi"
   }
