@@ -21,10 +21,7 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v2
           with:
-             node-version: '18'
-            
-        - name: ls
-          run: ls -l  
+             node-version: '18' 
 
         - name: Install dependencies
           run: |
@@ -34,24 +31,12 @@ jobs:
           run: npm run build
             # This will create the dist directory with the built files
 
-        # Infrastructure deployment
-        - name: Setup Terraform
-          uses: hashicorp/setup-terraform@v1
-          with:
-            terraform_version: '1.0.0'
-
         - name: Configure AWS Credentials
           uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-1
-
-        - name: Terraform Init
-          run: terraform init
-
-        - name: Terraform Apply
-          run: terraform apply -auto-approve
 
         # Deploy to S3
         - name: Upload to S3
