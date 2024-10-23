@@ -10,6 +10,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: ls
+        run: ls -l
       - name: Checkout code
         uses: actions/checkout@v2
 
