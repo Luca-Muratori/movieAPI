@@ -41,12 +41,9 @@ jobs:
         # Deploy to S3
         - name: Upload to S3
           run: |
-            # Get the bucket name from Terraform output
             aws s3 sync dist/ s3://movieapi-223769697
 
         # Invalidate CloudFront
         - name: Invalidate CloudFront
           run: |
-            # Get the distribution ID from Terraform output
-            DISTRIBUTION_ID=$(terraform output -raw cloudfront_distribution_id)
-            aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+            aws cloudfront create-invalidation --distribution-id E75X0X8H6RH8J --paths "/*"
