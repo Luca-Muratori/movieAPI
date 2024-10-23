@@ -2,7 +2,7 @@ data "aws_s3_bucket" "movieapi-223769697" {
   bucket = "movieapi-223769697"
 }
 
-/////////////////////////////////////////
+///////////////
 resource "aws_cloudfront_distribution" "movieapi_distribution" {
   enabled             = true
   default_root_object = "index.html"

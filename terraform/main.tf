@@ -7,3 +7,7 @@ provider "aws" {
 module "s3" {
   source = "./modules/bucket"
 }
+
+module "cloudfront" {
+  source = "./modules/cloudfront"
+}
